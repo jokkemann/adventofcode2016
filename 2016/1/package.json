@@ -1,0 +1,17 @@
+{
+  "name": "aoc1601-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "task1.js",
+  "dependencies": {
+    "jasmine": "^2.5.2"
+  },
+  "devDependencies": {
+    "jasmine": "^2.5.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
