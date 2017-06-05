@@ -1,0 +1,19 @@
+{
+  "name": "aoc1603",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tscw": "./node_modules/.bin/tsc -w",
+    "tsc": "tsc",
+    "test": "jest"
+  },
+  "author": "Joakim Svensson",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^2.5.2"
+  },
+  "dependencies": {
+    "jest": "^20.0.1"
+  }
+}
