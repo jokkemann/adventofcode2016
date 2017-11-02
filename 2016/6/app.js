@@ -20,16 +20,11 @@ var input = [
 var fs = require('fs')
 input = fs.readFileSync('./input.txt').toString().split('\n')
 
-
-task1(input)
-
-function task1(input) {
-
+function getTable(input) {
     var table = []
     
     input.forEach(s => {
-        for(var i = 0; i < s.length; i++) {
-            var char = s.charAt(i)
+        s.split('').forEach((char, i) => {
             if (!table[i]) {
                 table[i] = [];
             }
@@ -42,17 +37,35 @@ function task1(input) {
             } else {
                 occurence.nbr++
             }
-        }
+        })
     })
+
+    return table
+}
+var task1 = runReducer(input, getTable(input), (c, o) => {
+    if (o.nbr > c.nbr) {
+        return o
+    } else {
+        return c
+    }
+})
+
+console.log('task 1', task1)
+var task2 = runReducer(input, getTable(input), (c, o) => {
+    if (o.nbr < c.nbr) {
+        return o
+    }
+    else {
+        return c
+    }
+})
+
+console.log('task 2', task2)
+
+function runReducer(input, table, reducer) {
     var result = table.reduce((r, ti) => {
-        var mostOccuring = ti.reduce((c, o) => {
-            if (o.nbr > c.nbr) {
-                return o
-            } else {
-                return c
-            }
-        });
-        return r + mostOccuring.char
+        var getCharToAdd = ti.reduce(reducer);
+        return r + getCharToAdd.char
     }, '')
-    console.log(result)
+    return result;
 }
