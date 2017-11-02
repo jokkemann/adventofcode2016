@@ -7,34 +7,14 @@
 //     'not-a-real-room-404[oarel]'
 // ];
 let fs = require('fs')
-// let inputs = fs.readFileSync('4/input.txt').toString().split('\n')
+let inputs = fs.readFileSync('4/input.txt').toString().split('\n')
 
-let inputs = 'qzmt-zixmtkozy-ivhz-343'
 
-var res = ''
-var totalChars = 'z'.charCodeAt(0) - 'a'.charCodeAt(0)
-console.log('totalChars', totalChars)
-var maxChar = 'z'.charCodeAt(0)
-console.log('maxchar', maxChar)
-var cipher = 343 % totalChars
-console.log('cipher', cipher)
-for (var i = 0; i < inputs.length; i++) {
-    if (inputs[i] === '-') {
-        res = res.concat(' ')
-        continue
-    }
-    var deciphered = inputs[i].charCodeAt(0) + cipher
-    console.log('deciphered', deciphered, String.fromCharCode(deciphered))
-    if (deciphered > maxChar) {
-        deciphered -= 'z'.charCodeAt(0)
-    }
-    res = res.concat(String.fromCharCode(deciphered))
-}
-console.log(res)
-// var sum = inputs.reduce((a, i) => {
-//     return a + getSectionIdIfRealRoom(i);
-// }, 0)
-// console.log('result:', sum);
+
+var sum = inputs.reduce((a, i) => {
+    return a + getSectionIdIfRealRoom(i);
+}, 0)
+console.log('result:', sum);
 
 
 function getSectionIdIfRealRoom(input) : number {
@@ -76,5 +56,3 @@ function verifyChecksum(input, checksum) {
 
     return uniqueChars === checksum;
 }
-
-export default getSectionIdIfRealRoom;
